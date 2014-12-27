@@ -4,9 +4,9 @@
 
 Name:           jnr-x86asm
 Version:        1.0.2
-Release:        2.0%{?dist}
+Release:        5.1
 Summary:        Pure-java port of asmjit
-
+Group:		Development/Java
 
 License:        MIT
 URL:            http://github.com/jnr/%{name}/
@@ -16,12 +16,6 @@ BuildArch:      noarch
 BuildRequires:  java-devel
 BuildRequires:  jpackage-utils
 BuildRequires:  maven-local
-BuildRequires:  maven-compiler-plugin
-BuildRequires:  maven-install-plugin
-BuildRequires:  maven-jar-plugin
-BuildRequires:  maven-javadoc-plugin
-BuildRequires:  maven-surefire-plugin
-BuildRequires:  maven-surefire-provider-junit4
 
 Requires:       java
 Requires:       jpackage-utils
@@ -43,7 +37,7 @@ find ./ -name '*.jar' -delete
 find ./ -name '*.class' -delete
 
 %build
-mvn-rpmbuild install javadoc:aggregate
+%mvn_build
 
 %install
 mkdir -p $RPM_BUILD_ROOT%{_javadir}
@@ -58,11 +52,8 @@ install -pm 644 pom.xml  \
 
 %add_maven_depmap JPP-%{name}.pom %{name}.jar
 
-%files
+%files -f .mfiles
 %doc LICENSE README
-%{_mavenpomdir}/JPP-%{name}.pom
-%{_mavendepmapfragdir}/%{name}
-%{_javadir}/%{name}.jar
 
 %files javadoc
 %doc LICENSE
