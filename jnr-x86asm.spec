@@ -4,7 +4,7 @@
 
 Name:           jnr-x86asm
 Version:        1.0.2
-Release:        5.1
+Release:        5.2
 Summary:        Pure-java port of asmjit
 Group:		Development/Java
 
