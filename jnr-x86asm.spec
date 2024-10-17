@@ -9,7 +9,7 @@ Summary:        Pure-java port of asmjit
 Group:		Development/Java
 
 License:        MIT
-URL:            http://github.com/jnr/%{name}/
+URL:            https://github.com/jnr/%{name}/
 Source0:        https://github.com/jnr/%{name}/tarball/%{version}/jnr-%{name}-%{version}-0-g%{commit_hash}.tar.gz
 BuildArch:      noarch
 
