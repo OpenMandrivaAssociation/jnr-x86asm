@@ -18,6 +18,9 @@ Pure Java assembler for x86 and x86_64, used by jnr-ffi.
 
 %prep
 %setup -q -n jnr-x86asm-%{version}
+# oss-parent 7 is a publishing parent. This project already has its license
+# and compiler settings, and that parent POM is not installed.
+sed -i '/<parent>/,/<\/parent>/d' pom.xml
 
 %files -f .mfiles
 %doc LICENSE README
